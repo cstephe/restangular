@@ -185,15 +185,16 @@ module.provider('Restangular', function() {
               return this;
             };
 
+            // Carried over from https://github.com/mgonto/restangular/issues/529
             config.getFieldFromElem = function(field, elem) {
               var properties = field.split('.');
-              var idValue = angular.copy(elem);
+              var idValue = elem;
               _.each(properties, function(prop) {
                 if (idValue) {
                   idValue = idValue[prop];
                 }
               });
-              return idValue;
+              return angular.copy(idValue);
             };
 
             config.setIdToElem = function(elem, id) {
