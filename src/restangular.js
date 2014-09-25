@@ -1115,6 +1115,8 @@ module.provider('Restangular', function() {
 
               service.restangularizeCollection = _.bind(restangularizeCollection, service);
 
+              service.stripRestangular = _.bind(stripRestangular, service);
+
               return service;
           }
 
